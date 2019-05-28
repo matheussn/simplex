@@ -1,8 +1,10 @@
 var _ = require('lodash')
 
+const regex = /[+=]/;
+
 function getArrayBase(f, numRes) {
   res = [];
-  f = _.split(f, "+");
+  f = _.split(f, regex);
   res['func'] = 1;
   _.map(f, (item) => {
     item = _.trim(item);
@@ -20,8 +22,7 @@ function getArrayBase(f, numRes) {
 
 function getArrayRest(rest, result) {
   _.map(rest, (item) => {
-    var re = /\[+, <=, ]/;
-    item = item.split(re);
+    item = item.split(regex);
   })
 
   return result;
